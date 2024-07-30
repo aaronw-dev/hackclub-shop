@@ -1,0 +1,1 @@
+The purpose of this project is to create a new product shipment and fulfilment infrastructure for [Hack Club](https://hack.af). This project has not been officially supported, funded, or endorsed by Hack Club so far, so this project is just a passion project that I hope will be added to the official infrastructure.
