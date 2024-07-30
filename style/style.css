@@ -101,6 +101,12 @@ nav a {
     border-radius: 10px;
     position: relative;
     overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+    box-sizing: border-box;
 }
 
 .shop-item>.info {
@@ -108,20 +114,45 @@ nav a {
     flex-direction: column;
 
     align-items: center;
-    padding: 20px;
     gap: 5px;
     height: 100%;
-    box-sizing: border-box;
     transition: 300ms filter;
 }
 
-.shop-item:hover>.info {
+.shop-item>.info:hover {
     filter: blur(10px);
 }
 
-.shop-item>.info>img {
+.shop-item>.info:hover~.buy-now {
+    bottom: 55px;
+    transform: translate(-50%, 50%) scale(1);
+}
+
+.shop-item>.buy-now:hover {
+    bottom: 55px;
+    transform: translate(-50%, 50%) scale(1.1);
+}
+
+.info.blurred {
+    filter: blur(10px);
+}
+
+.shop-item>.info:hover {
+    filter: blur(10px);
+}
+
+.shop-item>img {
     height: 180px;
-    pointer-events: none;
+    width: auto;
+    transition: transform 200ms, filter 200ms;
+    transition-timing-function: cubic-bezier(0.64, 0.57, 0.67, 1.53);
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(2px 5px 0.2rem rgba(0, 0, 0, 0.3));
+}
+
+.shop-item>img:hover {
+    transform: scale(1.05) rotate(-5deg);
+    filter: drop-shadow(3px 10px 0.5rem rgba(0, 0, 0, 0.6));
 }
 
 .shop-item>.info>#item-name {
@@ -138,18 +169,14 @@ nav a {
 }
 
 
-.shop-item:hover .buy-now {
-    bottom: 50%;
-    transform: translate(-50%, 50%);
-}
 
 button.buy-now {
     position: absolute;
     bottom: 0%;
     left: 50%;
-    transform: translate(-50%, 100%);
+    transform: translate(-50%, 100%) scale(1);
     z-index: 100;
-    transition: 10ms transform, 300ms bottom;
+    transition: 100ms transform, 300ms bottom;
 
     color: var(--accent-color);
     border: 3px solid var(--accent-color);
