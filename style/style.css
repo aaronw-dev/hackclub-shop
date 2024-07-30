@@ -2,8 +2,15 @@
     --background: #FFFFFF;
     --head-bg: #F9FAFC;
     --text-color: #1F2D3D;
-    --accent-color: #33D6A6;
     --container: #E0E6ED;
+    --hackclub-red: #EC3750;
+    --hackclub-orange: #FF8C37;
+    --hackclub-yellow: #F1C40F;
+    --hackclub-green: #33D6A6;
+    --hackclub-lightblue: #5BC0DE;
+    --hackclub-blue: #338EDA;
+    --hackclub-purple: #A633D6;
+    --hackclub-grey: #8492A6;
 }
 
 body {
@@ -23,8 +30,10 @@ nav {
     font-size: 18px;
     height: fit-content;
     margin: 0 auto;
-    padding-top: 20px;
-    overflow-x: hidden;
+    padding: 20px 0px;
+    box-sizing: border-box;
+    overflow: hidden;
+    background-color: var(--head-bg);
 }
 
 nav a {
@@ -41,20 +50,24 @@ nav a {
 
 .flag {
     display: block;
+    height: 0;
+    margin-right: 135px;
+}
+
+.flag>img {
     height: 60px;
     transform: translateY(-20px) rotate(0deg);
     transition: 1000ms transform;
     transform-origin: 0% 0%;
-    margin-right: 135px;
 }
 
-.flag:hover {
+.flag>img:hover {
     transform: translateY(-20px) rotate(-10deg);
 }
 
 .main-head-text {
     font-size: 80px;
-    color: var(--accent-color);
+    color: var(--hackclub-green);
     margin-top: 1em;
     margin-bottom: 0.15em;
 }
@@ -85,8 +98,8 @@ nav a {
 
 .accent-button {
     display: block;
-    color: var(--accent-color);
-    border: 3px solid var(--accent-color);
+    color: var(--hackclub-green);
+    border: 3px solid var(--hackclub-green);
     width: fit-content;
     padding: 10px 15px;
     font-weight: bolder;
@@ -123,12 +136,12 @@ nav a {
     filter: blur(10px);
 }
 
-.shop-item>.info:hover~.buy-now {
+.shop-item>.info:hover~.add-to-basket {
     bottom: 55px;
     transform: translate(-50%, 50%) scale(1);
 }
 
-.shop-item>.buy-now:hover {
+.shop-item>.add-to-basket:hover {
     bottom: 55px;
     transform: translate(-50%, 50%) scale(1.1);
 }
@@ -148,6 +161,7 @@ nav a {
     transition-timing-function: cubic-bezier(0.64, 0.57, 0.67, 1.53);
     transform: scale(1) rotate(0deg);
     filter: drop-shadow(2px 5px 0.2rem rgba(0, 0, 0, 0.3));
+    cursor: pointer;
 }
 
 .shop-item>img:hover {
@@ -170,7 +184,7 @@ nav a {
 
 
 
-button.buy-now {
+.shop-item>.add-to-basket {
     position: absolute;
     bottom: 0%;
     left: 50%;
@@ -178,8 +192,8 @@ button.buy-now {
     z-index: 100;
     transition: 100ms transform, 300ms bottom;
 
-    color: var(--accent-color);
-    border: 3px solid var(--accent-color);
+    color: var(--hackclub-green);
+    border: 3px solid var(--hackclub-green);
     width: max-content;
     padding: 10px 15px;
     font-weight: bolder;
@@ -194,6 +208,6 @@ button.buy-now {
     gap: 10px;
 }
 
-.buy-now>img {
+.shop-item.add-to-basket>img {
     height: 25px;
 }
