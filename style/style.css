@@ -195,7 +195,7 @@ nav a {
     color: var(--hackclub-green);
     border: 3px solid var(--hackclub-green);
     width: max-content;
-    padding: 10px 15px;
+    padding: 5px 15px;
     font-weight: bolder;
     font-size: 20px;
     border-radius: 50px;
@@ -208,6 +208,6 @@ nav a {
     gap: 10px;
 }
 
-.shop-item.add-to-basket>img {
-    height: 25px;
+.shop-item>.add-to-basket>img {
+    height: 30px;
 }
