@@ -3,33 +3,26 @@ const accessToken = '1a0f8b8243b980d0407f15535f6518b2';
 async function init() {
     const query = `
     {
-    products(first: 4) {
-        edges {
-        node {
-            id
-            title
-            description
-            productType
-            metafield(namespace: "custom", key: "short_description") {
-                value
-            }
-            variants(first: 1) {
+        products(first: 4) {
             edges {
                 node {
-                availableForSale
+                    id
+                    title
+                    description
+                    productType
+                    metafield(namespace: "custom", key: "short_description") {
+                        value
+                    }
+                    images(first: 1) {
+                        edges {
+                            node {
+                            src
+                            }
+                        }
+                    }
                 }
             }
-            }
-            images(first: 1) {
-            edges {
-                node {
-                src
-                }
-            }
-            }
         }
-        }
-    }
     }
     `;
     var productData = {}
@@ -44,7 +37,7 @@ async function init() {
         .then(response => response.json())
         .then(data => productData = data)
         .catch(error => console.error('Error:', error));
-
+    console.log(productData)
     var products = productData.data.products.edges
     const productDiv = document.getElementById("allproducts")
     products.forEach(product => {
@@ -86,10 +79,15 @@ async function init() {
 
         const button = document.createElement('button');
         button.className = 'add-to-basket';
-        button.innerHTML = 'Add to basket <img src="./images/icons/bag-full.svg">';
+        button.innerHTML = 'Add to basket <img src="/resources/images/icons/bag-full.svg">';
 
         shopItem.appendChild(button);
         productDiv.appendChild(shopItem);
+        const productID = product.node.id.split("/").slice(-1).pop()
+        const productLink = location.origin + `/product/${productID}`
+        img.addEventListener("click", (e) => {
+            location.href = productLink
+        })
     })
     document.querySelectorAll(".shop-item>.add-to-basket").forEach(element => {
         element.addEventListener('mouseenter', function () {

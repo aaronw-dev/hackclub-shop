@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hack Club Shop</title>
-    <link rel="stylesheet" href="./style/font.css">
-    <link rel="stylesheet" href="./style/style.css">
-    <link rel="stylesheet" href="./style/product.css">
+    <title>Hack Club Shop - {{PRODUCT_TITLE}}</title>
+    <link rel="stylesheet" href="/resources/style/font.css">
+    <link rel="stylesheet" href="/resources/style/style.css">
+    <link rel="stylesheet" href="/resources/style/product.css">
 
     <meta name="keywords" content="hack,club,hackclub,shop,merch,swag">
     <meta name="robots" content="index, follow">
@@ -18,11 +18,11 @@
 
     <meta name="author" content="awdev">
 
-    <meta name="title" content="Hack Club Shop">
-    <meta property="og:title" content="Hack Club Shop">
+    <meta name="title" content="Hack Club Shop - {{PRODUCT_TITLE}}">
+    <meta property="og:title" content="Hack Club Shop - {{PRODUCT_TITLE}}">
 
-    <meta name="description" content="Pick up some Hack Club swag!">
-    <meta property="og:description" content="Pick up some Hack Club swag!">
+    <meta name="description" content="{{SHORT_DESCRIPTION}}">
+    <meta property="og:description" content="{{SHORT_DESCRIPTION}}">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="http://hackclub.com">
@@ -30,10 +30,9 @@
     <meta name="theme-color" content="#ec3750">
 
     <meta property="og:image" content="https://awdev.codes/hcshop_banner.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://awdev.codes/hcshop_banner.png">
+    <meta name="twitter:card" content="https://awdev.codes/hcshop_banner.png">
 
-    <link href="./images/logo/hc.svg" rel="icon">
+    <link href="/resources/images/logo/hc.svg" rel="icon">
 
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
@@ -43,7 +42,7 @@
 <body>
     <nav>
         <a href="https://hackclub.com" class="flag">
-            <img src="./images/logo/flag.svg">
+            <img src="/resources/images/logo/flag.svg">
         </a>
         <a href="https://hackclub.com/clubs/">Clubs</a>
         <a href="https://hackclub.com/fiscal-sponsorship/">Fiscal Sponsorship</a>
@@ -56,35 +55,34 @@
     <div class="product-info-container">
         <div class="product-image-container">
             <div class="product-main-image">
-                <img src="./images/products/orpheus_boba.png">
+                <img src="{{PRODUCT_MAINIMAGE}}">
             </div>
             <div class="product-image-list">
-                <img src="./images/products/orpheus_boba.png">
-                <img src="./images/products/orpheus_boba.png">
-                <img src="./images/products/orpheus_boba.png">
-                <img src="./images/products/orpheus_boba.png">
-                <img src="./images/products/orpheus_boba.png">
+                <img src="/resources/images/products/orpheus_boba.png">
+                <img src="/resources/images/products/orpheus_boba.png">
+                <img src="/resources/images/products/orpheus_boba.png">
+                <img src="/resources/images/products/orpheus_boba.png">
+                <img src="/resources/images/products/orpheus_boba.png">
             </div>
         </div>
         <div class="product-data-container">
-            <h1 id="product-name">Orpheus Boba</h1>
+            <h1 id="product-name">{{PRODUCT_TITLE}}</h1>
             <div class="star-rating">
-                <img src="./images/icons/star-full.svg">
-                <img src="./images/icons/star-full.svg">
-                <img src="./images/icons/star-full.svg">
-                <img src="./images/icons/star-full.svg">
-                <img src="./images/icons/star-half.svg">
+                <img src="/resources/images/icons/star-full.svg">
+                <img src="/resources/images/icons/star-full.svg">
+                <img src="/resources/images/icons/star-full.svg">
+                <img src="/resources/images/icons/star-full.svg">
+                <img src="/resources/images/icons/star-half.svg">
                 <span id="rating-text">(12K)</span>
             </div>
             <p id="product-description">
-                The Orpheus Boba sticker is simply the best. Nothing but the highest quality stickers for the highest
-                quality programmers!
+                {{PRODUCT_DESCRIPTION}}
                 <br><br>
                 Backed by the <b>Hack Club Quality Guarantee&reg;</b>!
             </p>
             <div class="stock-counter">
-                <img class=".stock-image" src="./images/icons/stock-ping.svg">
-                <span id="stock-count">17,200</span>
+                <img class=".stock-image" src="/resources/images/icons/stock-ping.svg">
+                <span id="stock-count">{{PRODUCT_STOCK}}</span>
                 <span>in stock</span>
             </div>
             <div class="purchase-buttons">
@@ -111,7 +109,7 @@
                     <span id="buywith-productname">Pile of stickers</span>
                     <button class="add-to-basket" onclick="alert('buy!')">Add to basket</button>
                 </div>
-                <img src="./images/products/stickerpile.png">
+                <img src="/resources/images/products/stickerpile.png">
             </div>
         </div>
     </div>
