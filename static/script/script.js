@@ -3,13 +3,25 @@ const accessToken = '1a0f8b8243b980d0407f15535f6518b2';
 async function init() {
     const query = `
     {
-        products(first: 4) {
+        products(first: 6) {
             edges {
                 node {
                     id
                     title
                     description
                     productType
+                    variants(first: 10) {
+                    edges {
+                        node {
+                        id
+                        title
+                        priceV2 {
+                            amount
+                            currencyCode
+                        }
+                        }
+                    }
+                    }
                     metafield(namespace: "custom", key: "short_description") {
                         value
                     }

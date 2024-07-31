@@ -25,6 +25,18 @@ def product(id):
             title
             description
             productType
+            variants(first: 10) {
+            edges {
+                node {
+                id
+                title
+                priceV2 {
+                    amount
+                    currencyCode
+                }
+                }
+            }
+            }
             metafield(namespace: "custom", key: "short_description") {
                 value
             }
@@ -52,7 +64,9 @@ def product(id):
     title = productinfo["title"]
     stock = "150,000"
     imageurl = productinfo["images"]["edges"][0]["node"]["src"]
-    return render_template("product.html", PRODUCT_DESCRIPTION=description, PRODUCT_TITLE=title, PRODUCT_STOCK=stock, PRODUCT_MAINIMAGE=imageurl, SHORT_DESCRIPTION=shortdescription)
+    pricedict = productinfo["variants"]["edges"][0]["node"]["priceV2"]
+    price = f"${float(pricedict['amount']):.2f} {pricedict['currencyCode']}"
+    return render_template("product.html", PRODUCT_DESCRIPTION=description, PRODUCT_TITLE=title, PRODUCT_STOCK=stock, PRODUCT_MAINIMAGE=imageurl, SHORT_DESCRIPTION=shortdescription, PRODUCT_PRICE=price)
 
 
 @app.route('/about')
