@@ -89,6 +89,6 @@ def product(id):
     return render_template("product.html", PRODUCT_DESCRIPTION=description, PRODUCT_TITLE=title, PRODUCT_STOCK=stock, PRODUCT_MAINIMAGE=imageurl, SHORT_DESCRIPTION=shortdescription, PRODUCT_PRICE=price)
 
 
-@ app.route('/about')
-def about():
-    return 'About'
+@app.route('/teapot')
+def iamateapot():
+    return "<img src=\"https://raw.githubusercontent.com/hiroharu-kato/neural_renderer/master/examples/data/example1.gif\">", 418
