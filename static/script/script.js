@@ -19,6 +19,7 @@ async function init() {
                             amount
                             currencyCode
                         }
+                        quantityAvailable
                         }
                     }
                     }

@@ -45,12 +45,13 @@ def product(id):
             variants(first: 10) {
             edges {
                 node {
-                id
-                title
-                priceV2 {
-                    amount
-                    currencyCode
-                }
+                    id
+                    title
+                    priceV2 {
+                        amount
+                        currencyCode
+                    }
+                    quantityAvailable
                 }
             }
             }
@@ -76,16 +77,18 @@ def product(id):
                              'query': query}, headers=headers)
     productinfo = response.json()["data"]["product"]
     print(productinfo)
+    variants = [item["node"]
+                for item in productinfo["variants"]["edges"]]
     description = productinfo["description"]
     shortdescription = productinfo["metafield"]["value"]
     title = productinfo["title"]
-    stock = "150,000"
+    stock = str(variants[0]["quantityAvailable"])
     imageurl = productinfo["images"]["edges"][0]["node"]["src"]
     pricedict = productinfo["variants"]["edges"][0]["node"]["priceV2"]
     price = f"${float(pricedict['amount']):.2f} {pricedict['currencyCode']}"
     return render_template("product.html", PRODUCT_DESCRIPTION=description, PRODUCT_TITLE=title, PRODUCT_STOCK=stock, PRODUCT_MAINIMAGE=imageurl, SHORT_DESCRIPTION=shortdescription, PRODUCT_PRICE=price)
 
 
-@app.route('/about')
+@ app.route('/about')
 def about():
     return 'About'
