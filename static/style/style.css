@@ -211,3 +211,40 @@ nav a {
 .shop-item>.add-to-basket>img {
     height: 30px;
 }
+
+@media only screen and (max-width: 600px) {
+    nav {
+        height: 60px;
+        justify-content: left;
+    }
+
+    nav a:not(.flag) {
+        display: none;
+    }
+
+    .flag {
+        margin-right: 0;
+        margin-left: 40px;
+    }
+
+    .main-head-text {
+        font-size: 48px;
+    }
+
+    .main-sub-text {
+        font-size: 22px;
+        width: 80%;
+        text-align: center;
+    }
+
+    .shop-area {
+        padding: 0px;
+        width: 90%;
+        padding-bottom: 20px;
+    }
+
+    .shop-area section {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
